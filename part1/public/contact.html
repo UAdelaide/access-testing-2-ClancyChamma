@@ -25,6 +25,8 @@
             <textarea v-model="TextMessage" placeholder="Type your message here..."></textarea>
             <button @click="sendMessage">Send Message</button>
 
-            <h2>Recieved Messages<
+            <h2>Recieved Messages</h2>
+            <ul>
+                <li v-for="message in messages" :key="message.id">
     </body>
 </html>
