@@ -46,7 +46,8 @@
                     };
                 },
                 async mounted() {
-                    const
+                    const itemsRes = await fetch('/api/books');
+                    this.items = await itemsRes.json();
                 },
                 methods: {
                     fetchBooks() {
