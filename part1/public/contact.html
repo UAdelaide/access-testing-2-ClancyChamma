@@ -54,7 +54,7 @@
                 },
                 methods: {
                     async sendMessage() {
-                        if (!this.selectedBookID || !this.TextMessage) {
+                        if (!this.selectedBookID || !this.TextMessage.trim()) {
                             alert('Please select a book and enter a message.');
                             return;
                         }
@@ -75,7 +75,7 @@
                         } else {
                             alert('Failed to send message. Please try again.');
                         }
-                    }   
+                    }
                 }
             }).mount('#app');
         </script>
