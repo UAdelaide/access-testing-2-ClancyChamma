@@ -6,4 +6,5 @@ const db = mysql.createPool({
     password: 'mypassword',
     database: 'textbook_marketplace',
 })
+
 module.exports = db;
