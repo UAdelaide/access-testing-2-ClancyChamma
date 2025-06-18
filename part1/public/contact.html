@@ -48,6 +48,9 @@
                 async mounted() {
                     const itemsRes = await fetch('/api/books');
                     this.items = await itemsRes.json();
+
+                    const messagesRes = await fetch('/api/messages');
+                    this.messages = await messagesRes.json();
                 },
                 methods: {
                     fetchBooks() {
