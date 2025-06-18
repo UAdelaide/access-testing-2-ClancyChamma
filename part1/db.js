@@ -1,3 +1,5 @@
 cosnt mysql = require('mysql2/promise');
 
-const db = 
+const db = mysql.createPool({
+    
+})
