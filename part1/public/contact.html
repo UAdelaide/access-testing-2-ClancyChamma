@@ -53,6 +53,29 @@
                     this.messages = await messagesRes.json();
                 },
                 methods: {
+                    async sendMessage() {
+                        if (!this.selectedBookID || !this.TextMessage) {
+                            alert('Please select a book and enter a message.');
+                            return;
+                        }
+
+                        const response = await fetch('/api/messages', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                BookID: this.selectedBookID,
+                                TextMessage: this.TextMessage
+                            })
+                        });
+
+                        if (response.ok) {
+                            const newMessage = await response.json();
+                            this.messages.push(newMessage);
+                            this.TextMessage = '';
+                        } else {
+                            alert('Failed to send message. Please try again.');
+                        }
+                    }   
                 }
             }).mount('#app');
         </script>
