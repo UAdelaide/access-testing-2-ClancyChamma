@@ -9,5 +9,5 @@ router.get('/items', async function(req, res, next){
     const [rows] = await db.query(`
         SELECT bl.BookID, bi.Title, u.Name AS SellerName
         FROM BookListings bl
-        `)
+        JOIN BookInfo bi ON bl.BookID = bi.BookID`)
 })
