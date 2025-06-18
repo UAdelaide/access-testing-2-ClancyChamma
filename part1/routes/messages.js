@@ -16,7 +16,8 @@ router.get('/items', async function(req, res, next){
 })
 
 router.post('/messages', async function(req, res, next){
-    const { boo}
+    const { bookId, message } = req.body;
+    await db.query
 })
 
 module.exports = router;
