@@ -11,5 +11,5 @@ router.get('/items', async function(req, res, next){
         FROM BookListings bl
         JOIN BookInfo bi ON bl.BookInfoID = bi.BookInfoID
         JOIN Users u ON bl.SellerID = u.UserID
-        WHERE bl.BuyerID IS NULL`)
+        `)
 })
