@@ -67,7 +67,8 @@
                                 message: this.TextMessage
                             })
                         });
-                        alert
+                        alert('Message sent successfully!');
+                        this.TextMessage = ''; // Clear the message input
                     }
                 }
             }).mount('#app');
