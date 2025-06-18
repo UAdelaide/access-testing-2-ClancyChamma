@@ -14,3 +14,5 @@ router.get('/items', async function(req, res, next){
         `);
     res.json(rows);
 })
+
+module.exports = router;
