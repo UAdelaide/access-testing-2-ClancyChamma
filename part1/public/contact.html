@@ -35,7 +35,57 @@
         </div>
 
         <script>
-            const {}
+            const { createApp } = Vue;
+            createApp({
+                data() {
+                    return {
+                        selectedBookID: '',
+                        TextMessage: '',
+                        messages: [],
+                        item: []
+                    };
+                },
+                mounted() {
+                    this.fetchBooks();
+                    this.fetchMessages();
+                },
+                methods: {
+                    fetchBooks() {
+                        fetch('/api/books')
+                            .then(response => response.json())
+                            .then(data => {
+                                this.item = data;
+                            });
+                    },
+                    fetchMessages() {
+                        fetch('/api/messages')
+                            .then(response => response.json())
+                            .then(data => {
+                                this.messages = data;
+                            });
+                    },
+                    sendMessage() {
+                        if (!this.selectedBookID || !this.TextMessage) {
+                            alert('Please select a book and enter a message.');
+                            return;
+                        }
+                        const messageData = {
+                            BookID: this.selectedBookID,
+                            TextMessage: this.TextMessage
+                        };
+                        fetch('/api/messages', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(messageData)
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.messages.push(data);
+                            this.TextMessage = '';
+                        });
+                    }
+                }
+            }).mount('#app');
         </script>
     </body>
 </html>
