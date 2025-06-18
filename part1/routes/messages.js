@@ -18,8 +18,8 @@ router.get('/items', async function(req, res, next){
 router.post('/messages', async function(req, res, next){
     const { bookId, message } = req.body;
     await db.query(`
-        INSERT INTO Messages (BuyerID, SellerID, BookID, TextMessage, SentA)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO Messages (BuyerID, SellerID, BookID, TextMessage, SentAt)
+        VALUES (?, ?, ?, ?, NOW())
     `, [CURRENT_BUYER_ID, CURRENT_SELLER_ID, bookId, message]);
     res.status(201).json({ message: 'Message sent successfully' });
 });
