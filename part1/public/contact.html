@@ -68,13 +68,7 @@
                             })
                         });
 
-                        if (response.ok) {
-                            const newMessage = await response.json();
-                            this.messages.push(newMessage);
-                            this.TextMessage = '';
-                        } else {
-                            alert('Failed to send message. Please try again.');
-                        }
+                        
                     }
                 }
             }).mount('#app');
