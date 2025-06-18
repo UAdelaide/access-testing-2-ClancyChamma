@@ -28,8 +28,7 @@
             <h2>Recieved Messages</h2>
             <ul>
                 <li v-for="message in messages">
-                    <strong>{{ message.BuyerName }}:</strong> {{ message.TextMessage }}
-                    <em>on book: {{ message.BookTitle }}</em>
+                    <strong>{{ message.BuyerName }}</strong> about <em>on book: {{ message.BookTitle }}</em>
                 </li>
             </ul>
         </div>
