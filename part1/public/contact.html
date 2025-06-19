@@ -17,7 +17,7 @@
 
             <select v-model="selectedBookID">
                 <option disabled value="">-- Select a book --</option>
-                <option v-for="item in item" :value="item.BookID">
+                <option v-for="item in items" :value="item.BookID">
                     {{ item.Title }} (Seller: {{ item.SellerName }})
                 </option>
             </select>
@@ -46,7 +46,7 @@
                     };
                 },
                 async mounted() {
-                    const itemsRes = await fetch('/api/books');
+                    const itemsRes = await fetch('/api/items');
                     this.items = await itemsRes.json();
 
                     const messagesRes = await fetch('/api/messages');
