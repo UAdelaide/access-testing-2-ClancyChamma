@@ -16,8 +16,7 @@ router.get('/items', async function(req, res, next){
 })
 
 router.get('/messages', async function(req, res, next){
-    const [rows] = await db.query(`
-        `)
+    const [rows] = await db.query(``)
 })
 
 router.post('/messages', async function(req, res, next){
