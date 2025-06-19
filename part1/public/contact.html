@@ -55,8 +55,7 @@
                 methods: {
                     async sendMessage() {
                         if (!this.selectedBookID || !this.TextMessage.trim()) {
-                            alert('Please select a book and enter a message.');
-                            return;
+                            return alert('Please select a book and enter a message.');
                         }
 
                         await fetch('/api/messages', {
