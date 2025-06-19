@@ -24,7 +24,7 @@ router.get('/messages', async function(req, res, next){
         JOIN Users u ON m.BuyerID = u.UserID
         WHERE m.SellerID = ?
         ORDER BY m.SentAt DESC`,
-        [CURRENT_SELLER_ID]);
+        [CURRENT__ID]);
     res.json(rows);
 });
 
