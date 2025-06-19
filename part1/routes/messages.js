@@ -21,7 +21,7 @@ router.post('/messages', async function(req, res, next){
         INSERT INTO Messages (BuyerID, SellerID, BookID, TextMessage, SentAt)
         VALUES (?, ?, ?, ?, NOW())
     `, [CURRENT_BUYER_ID, CURRENT_SELLER_ID, bookId, message]);
-    res.status(201).json({ message: 'Message sent successfully' });
+    res.status(201).json({ message: 'Message sent successfully!' });
 });
 
 module.exports = router;
