@@ -17,7 +17,7 @@ router.get('/items', async function(req, res, next){
 
 router.get('/messages', async function(req, res, next){
     const [rows] = await db.query(`
-        SE`)
+        SELECT m.TextMessage`)
 })
 
 router.post('/messages', async function(req, res, next){
