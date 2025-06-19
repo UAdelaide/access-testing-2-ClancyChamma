@@ -46,7 +46,7 @@
                     };
                 },
                 async mounted() {
-                    const itemsRes = await fetch('/api/items');
+                    const itemsRes = await fetch('/api/books');
                     this.items = await itemsRes.json();
 
                     const messagesRes = await fetch('/api/messages');
@@ -55,7 +55,8 @@
                 methods: {
                     async sendMessage() {
                         if (!this.selectedBookID || !this.TextMessage.trim()) {
-                            return alert('Please select a book and enter a message.');
+                            alert('Please select a book and enter a message.');
+                            return;
                         }
 
                         await fetch('/api/messages', {
