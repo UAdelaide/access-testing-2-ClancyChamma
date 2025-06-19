@@ -20,7 +20,7 @@ router.post('/messages', async function(req, res, next){
     await db.query(`
         INSERT INTO Messages (BuyerID, SellerID, BookID, TextMessage, SentAt)
         VALUES (?, ?, ?, ?, NOW())
-    `, [CURRENT_BUYER_ID, CURRENT_SELLER_ID, bookId, message]);
+    `, [CURRENT_BUYER_ID, CURRENT_SELLER_ID, bookID, message]);
     res.status(201).json({ message: 'Message sent successfully!' });
 });
 
